@@ -112,6 +112,8 @@ let botaoCancelar = document.querySelector('input#vermelho');
 
 //Adiciona o evento de click ao botao Adicionar
 botaoAdicionar.addEventListener('click', () => {
+    // Quando o botão adicionar recebe click é removido a seguir
+    botaoAdicionar.remove();
     form.classList.remove('inativo');
 });
 
@@ -119,12 +121,16 @@ botaoAdicionar.addEventListener('click', () => {
 botaoCancelar.addEventListener('click', () => {
     form.classList.add('inativo');
     form.reset();
+    // quando pressionar o botão cancelar o botão adicionar é restaurado dentro da div com class= btnadd
+    document.querySelector('.btnadd').appendChild(botaoAdicionar);
 })
 
 let tabela = document.querySelector('table');
 //Adicionar um funcionamento para enviar os dados do form para a tabela
 form.addEventListener('submit', (evento) => {
     evento.preventDefault(); //Evita que a página seja recarregada
+    document.querySelector('.btnadd').appendChild(botaoAdicionar); /*quando realizado um submit no formulário o botão adicionar e ativado
+                                                                     novamente na div com a class=btnadd. */
     let profissional = { //Cria um objeto com os dados do form
         id: tabela.tBodies[0].rows.length + 1,
         nome: form.nome.value,
