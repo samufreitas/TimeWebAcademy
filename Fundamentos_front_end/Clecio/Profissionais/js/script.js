@@ -113,11 +113,13 @@ let botaoCancelar = document.querySelector('input#vermelho');
 //Adiciona o evento de click ao botao Adicionar
 botaoAdicionar.addEventListener('click', () => {
     form.classList.remove('inativo');
+    botaoAdicionar.classList.add('desaparecer');
 });
 
 //Adiciona o evento de click ao botao Cancelar
 botaoCancelar.addEventListener('click', () => {
     form.classList.add('inativo');
+    botaoAdicionar.classList.remove('desaparecer');
     form.reset();
 })
 
@@ -137,6 +139,7 @@ form.addEventListener('submit', (evento) => {
     //console.log(profissional);
     inserirProfissional(profissional); //insere o profissional na tabela
     form.reset(); //Limpa os campos do form
+    botaoAdicionar.classList.remove('desaparecer'); // Faz o botao Adicionar aparecer
     form.classList.add('inativo'); //Esconde o form
     eventoExcluir(); //Adiciona o evento de excluir ao botao criado ao inserir nova linha na tabela
 });

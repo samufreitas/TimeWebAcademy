@@ -110,6 +110,10 @@ form.inativo {
     display: none;
 }
 
+a.desaparecer { /* Para a atv individual do botao adicionar*/
+    display: none;
+}
+
 form label::after {
     content: ":";
 }
