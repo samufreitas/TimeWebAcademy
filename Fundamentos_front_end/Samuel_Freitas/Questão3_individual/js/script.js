@@ -141,6 +141,9 @@ form.addEventListener('submit', (evento) => {
     eventoExcluir(); //Adiciona o evento de excluir ao botao criado ao inserir nova linha na tabela
 });
 
+//Criação de uma variável contadora de linhas 
+let contadorDeLinhas = 0;
+
 //Função que insere um objeto profissional na tabela HTML
 const inserirProfissional = (item) => {
     //Criando os elementos HTML
@@ -173,4 +176,12 @@ const inserirProfissional = (item) => {
     linha.appendChild(acoes);
     //Preencher a tabela com uma linha
     tabela.tBodies[0].appendChild(linha);
+    //incremento da variável contadora de linhas e chamada da função "atualizarContador"
+    contadorDeLinhas++;
+    atualizarContador();
+};
+
+// Criação da função para adicionar o valor atualizado do número de registros na tabela
+const atualizarContador = () => {
+    document.querySelector('.contador').textContent = contadorDeLinhas;
 };
