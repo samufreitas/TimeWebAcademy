@@ -102,6 +102,7 @@ const eventoExcluir = () => {
     for (const bt of botoes) {
         bt.addEventListener('click', () => {
             bt.parentNode.parentNode.remove();
+            atualizaRegistros(); // para qndo ele excluir um registro ele att
         });
     };
 };
@@ -176,4 +177,14 @@ const inserirProfissional = (item) => {
     linha.appendChild(acoes);
     //Preencher a tabela com uma linha
     tabela.tBodies[0].appendChild(linha);
+    atualizaRegistros(); // para atualizar os registros sempre q um profissional for adicionado
 };
+
+// função para atualizar a linha q conta os registros
+function atualizaRegistros()
+{
+    let totalRegistros = tabela.rows.length -2; // para nao contar o cabeçalho e rodapé
+    let linhaRegistros = document.querySelector('td#totalRegistros');
+    linhaRegistros.textContent = 'Total de registros: '+totalRegistros;
+}
+atualizaRegistros();
