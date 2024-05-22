@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../css/estilo.css">
     <link rel="stylesheet" type="text/css" href="../css/estilo-tema-azul.css " id="link-tema">
     <script src="../js/script.js" defer></script>
+    <script src="../js/scriptClecio.js" defer></script>
 </head>
 
 <body>
@@ -46,7 +47,7 @@
         </ul>
     </nav>
     <main>
-        <form action="">
+        <form class="inativo" action="">
             <div>
                 <label for="nomeCompleto">Nome</label>
                 <input type="text" name="nome" id="nomeCompleto" required>
@@ -57,8 +58,8 @@
                 <label for="status">Status</label>
                 <select name="ativo" id="ativo" required>
                     <option value=""></option>
-                    <option value="1">1</option>
-                    <option value="2">0</option>
+                    <option value="1">true</option>
+                    <option value="2">false</option>
                 </select>
                 <label for="papel">Papel</label>
                 <select name="papel" id="papel" required>
