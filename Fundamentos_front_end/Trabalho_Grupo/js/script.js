@@ -26,7 +26,7 @@ selectTema.addEventListener('change', evento => {
 const mudaTema = (temaSelecionado) => {
     let linkTema = document.querySelector('#link-tema');
     //console.log(linkTema);
-    let url = "/css/estilo-tema-" + temaSelecionado + ".css";
+    let url = "../css/estilo-tema-" + temaSelecionado + ".css";
     linkTema.href = url;
 }
 
