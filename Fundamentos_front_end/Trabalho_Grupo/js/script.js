@@ -38,14 +38,14 @@ if (tema) {
 }
 
 //Função que carrega dados dos profissionais a partir de um objeto JSON
-const carregarProfissionais = () => {
+const carregarUsuarios = () => {
     let url = "https://my-json-server.typicode.com/juniorlimeiras/json2/usuarios";
     let tabela = document.querySelector('table');
     fetch(url).then(resposta => {
         return resposta.json();
     }).then(dados => {
         for (const item of dados) {
-            inserirProfissional(item);
+            inserirUsuario(item);
         }
         eventoExcluir();
     }).catch(erro => {
@@ -94,7 +94,7 @@ const carregarProfissionais = () => {
     });
     xhr.send(); */
 };
-carregarProfissionais();
+carregarUsuarios();
 
 //Função para excluir um profissional
 const eventoExcluir = () => {
@@ -122,51 +122,33 @@ botaoCancelar.addEventListener('click', () => {
 })
 
 let tabela = document.querySelector('table');
-//Adicionar um funcionamento para enviar os dados do form para a tabela
-form.addEventListener('submit', (evento) => {
-    evento.preventDefault(); //Evita que a página seja recarregada
-    let profissional = { //Cria um objeto com os dados do form
-        id: tabela.tBodies[0].rows.length + 1,
-        nome: form.nome.value,
-        registro: form.registro.value,
-        telefone: form.telefone.value,
-        email: form.email.value,
-        unidade: form.unidade.options[form.unidade.selectedIndex].label,
-        especialidade: form.especialidade.options[form.especialidade.selectedIndex].label
-    };
-    //console.log(profissional);
-    inserirProfissional(profissional); //insere o profissional na tabela
-    form.reset(); //Limpa os campos do form
-    form.classList.add('inativo'); //Esconde o form
-    eventoExcluir(); //Adiciona o evento de excluir ao botao criado ao inserir nova linha na tabela
-});
 
-//Função que insere um objeto profissional na tabela HTML
-const inserirProfissional = (item) => {
+//Função que insere um objeto usuário na tabela HTML
+const inserirUsuario = (item) => {
     //Criando os elementos HTML
     let linha = document.createElement('tr');
     let id = document.createElement('td');
-    let nome = document.createElement('td');
-    let registro = document.createElement('td');
-    let telefone = document.createElement('td');
-    let email = document.createElement('td');
-    let unidade = document.createElement('td');
+    let nome_completo = document.createElement('td');
+    let nome_usuario = document.createElement('td');
+    let ativo = document.createElement('td');
+    let senha = document.createElement('td');
+    let papel = document.createElement('td');
     let acoes = document.createElement('td');
     //Preencher os elementos
     id.textContent = item.id;
-    nome.textContent = item.nome_completo;
-    registro.textContent = item.nome_usuario;
-    telefone.textContent = item.ativo;
-    email.textContent = item.senha;
-    unidade.textContent = item.papel;
+    nome_completo.textContent = item.nome_completo;
+    nome_usuario.textContent = item.nome_usuario;
+    ativo.textContent = item.ativo;
+    senha.textContent = item.senha;
+    papel.textContent = item.papel;
     acoes.innerHTML = `<a class="botao">Editar</a> <a id="vermelho" class="botao">Excluir</a>`;
     //Preencher a linha
     linha.appendChild(id);
-    linha.append(nome);
-    linha.appendChild(registro);
-    linha.appendChild(email);
-    linha.appendChild(telefone);
-    linha.appendChild(unidade);
+    linha.appendChild(nome_completo);
+    linha.appendChild(nome_usuario);
+    linha.appendChild(ativo);
+    linha.appendChild(senha);
+    linha.appendChild(papel);
     linha.appendChild(acoes);
     //Preencher a tabela com uma linha
     tabela.tBodies[0].appendChild(linha);
