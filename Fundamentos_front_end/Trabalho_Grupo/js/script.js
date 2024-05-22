@@ -39,7 +39,7 @@ if (tema) {
 
 //Função que carrega dados dos profissionais a partir de um objeto JSON
 const carregarProfissionais = () => {
-    let url = "https://my-json-server.typicode.com/juniorlimeiras/json/profissionais";
+    let url = "https://my-json-server.typicode.com/juniorlimeiras/json2/usuarios";
     let tabela = document.querySelector('table');
     fetch(url).then(resposta => {
         return resposta.json();
@@ -151,16 +151,14 @@ const inserirProfissional = (item) => {
     let telefone = document.createElement('td');
     let email = document.createElement('td');
     let unidade = document.createElement('td');
-    let especialidade = document.createElement('td');
     let acoes = document.createElement('td');
     //Preencher os elementos
     id.textContent = item.id;
-    nome.textContent = item.nome;
-    registro.textContent = item.registro;
-    telefone.textContent = item.telefone;
-    email.textContent = item.email;
-    unidade.textContent = item.unidade;
-    especialidade.textContent = item.especialidade;
+    nome.textContent = item.nome_completo;
+    registro.textContent = item.nome_usuario;
+    telefone.textContent = item.ativo;
+    email.textContent = item.senha;
+    unidade.textContent = item.papel;
     acoes.innerHTML = `<a class="botao">Editar</a> <a id="vermelho" class="botao">Excluir</a>`;
     //Preencher a linha
     linha.appendChild(id);
@@ -169,7 +167,6 @@ const inserirProfissional = (item) => {
     linha.appendChild(email);
     linha.appendChild(telefone);
     linha.appendChild(unidade);
-    linha.appendChild(especialidade);
     linha.appendChild(acoes);
     //Preencher a tabela com uma linha
     tabela.tBodies[0].appendChild(linha);
