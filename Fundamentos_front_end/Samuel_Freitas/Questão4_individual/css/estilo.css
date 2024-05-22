@@ -178,6 +178,11 @@ table tbody tr td:last-child {
     width: 5%;
 }
 
+/* Aqui pego todas a segunda td que corresponde exatamente a coluna td -nth-child(2) seta extamente essa segunda td */
+table td:nth-child(2){
+    white-space: nowrap;
+}
+
 /* Rodapé */
 
 footer,
