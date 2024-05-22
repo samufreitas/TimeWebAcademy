@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuários</title>
+    <title>Profissionais</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css" id="linkTema">
     <script src="../js/funcionalidades.js" defer></script>
-    <script src="../js/usuarios.js" defer></script>
-    <script src="../js/scriptClecio.js" defer></script>
+    <script src="../js/profissionais.js" defer></script>
 </head>
 <body>
     <header>
@@ -43,29 +42,41 @@
             <li><a href="pacientes.html" target="_parent">Pacientes</a></li>
             <li><a href="atendimentos.html" target="_parent">Atendimento</a></li>
             <li><a href="convenio.html" target="_parent">Convenio</a></li>
-            <li><a href="profissionais.html" target="_parent">Profissionais</a></li>
+            <li><a href="#" target="_self">Profissionais</a></li>
             <li><a href="unidades.html" target="_parent">Unidades</a></li>
             <li><a href="especialidades.html" target="_parent">Especialidades</a></li>
-            <li><a href="#" target="_self">Usuários</a></li>
+            <li><a href="usuario.html" target="_parent">Usuários</a></li>
         </ul>
     </nav>
     <main>
-        <form class="inativo" action="">
+        <form action="" class="inativo">
             <div class="grid">
-                <label for="nomeCompleto">Nome</label>
-                <input type="text" name="nome" id="nomeCompleto" required>
+                <label for="nomeProfissional">Nome</label>
+                <input type="text" name="nomeProfissional" id="nome" required>
+
+                <label for="registrosConselho">Registro Conselho</label>
+                <input type="text" name="registroProfissional" id="registrosConselho" required>
                 
-                <label for="nomeUsuario">Nome de Usúario</label>
-                <input type="text" name="nomeUS" id="nomeUsuario" required>
-                
-                <label for="senha">Senha</label>
-                <input type="text" name="senha" id="senha" required>
-                
-                <label for="papel">Papel</label>
-                <select name="papel" id="papel" required>
+                <label for="emailProfissional">Email</label>
+                <input type="email" name="emal" id="emailProfissional" required>
+
+                <label for="telefoneProfissional">Telefone</label>
+                <input type="tel" name="telefoneProfissional" id="telefoneProfissional" required>
+
+                <label for="unidadeProfissional">Unidade</label>
+                <select name="unidadeProfissional" id="unidadeProfissional" required>
                     <option value=""></option>
-                    <option value="1">Atendente</option>
-                    <option value="2">Adiministrador</option>
+                    <option value="1">Pronto Atendimento</option>
+                    <option value="2">Exames Laboratóriais</option>
+                    <option value="3">UTI</option>
+                </select>
+
+                <label for="especialidadeProfissional">Especialidade</label>
+                <select name="Especialidade" id="especialidadeProfissional" required>
+                    <option value=""></option>
+                    <option value="1">Cardiologia</option>
+                    <option value="2">Urulogia</option>
+                    <option value="3">Neurologia</option>
                 </select>
 
                 <span></span>
@@ -75,38 +86,41 @@
                 <span></span>
             </div>
         </form>
+        
         <a href="" class="adicionar">Adicionar</a>
+        <!--Tabela com 8 colunas e 5 linhas-->
         <div class="table-container">
             <table>
                 <thead>
                     <tr>
                         <td>ID</td>
                         <td>Nome</td>
-                        <td>Nome de Usuário</td>
-                        <td>Senha</td>
-                        <td>Ativo</td>
-                        <td>Papel</td>
+                        <td>Conselho</td>
+                        <td>Email</td>
+                        <td>Telefone</td>
+                        <td>Unidade</td>
+                        <td>Especialidades</td>
                         <td>Ações</td>
                     </tr>
                 </thead>
-                <tbody></tbody> 
+                <tbody>
+                <!-- tr*5>td{$}+td{x}*6+td{Editar | Excluir} -->
+                <!-- tr*5>td{$}+td{x}*6+td>a[href="javascript:void(0)"]{Editar}+{ | }+a[href="javascript:void(0)"]{Excluir} -->
+                </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="7">Total de Registros: <span id="total"></span></td>
+                        <td colspan="8">Total de registros <span id="total"></span></td>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </main>
-
     <footer>
         <div>
-            <span>SGCM - Sistema de Gerenciamento de Clínica Médica |</span>
-            <span>Telefone de contato: (68)3333-3333 |</span>
-            <span>Email de contato: <a href="mailto:suporte.sgcm@ufac.br">suporte.sgcm@ufac.br</a></span>
+            <span>Telefone de contato: (68) 99913-2145</span>
+            <span>|</span>
+            <span>Email de contato <a href="#">suporte.sgcm@ufac.br</a></span>
         </div>
     </footer>
-
 </body>
-
 </html>
