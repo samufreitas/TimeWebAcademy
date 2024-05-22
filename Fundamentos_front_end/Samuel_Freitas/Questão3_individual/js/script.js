@@ -102,6 +102,8 @@ const eventoExcluir = () => {
     for (const bt of botoes) {
         bt.addEventListener('click', () => {
             bt.parentNode.parentNode.remove();
+            contadorDeLinhas--;
+            atualizarContador();
         });
     };
 };
