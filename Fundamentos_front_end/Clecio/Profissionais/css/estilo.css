@@ -191,3 +191,8 @@ span a {
     color: white;
     line-height: 2em;
 }
+
+/*atividade 4?*/
+table td:nth-child(2){
+    white-space: nowrap;
+}

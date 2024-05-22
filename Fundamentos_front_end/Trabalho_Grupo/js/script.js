@@ -102,6 +102,7 @@ const eventoExcluir = () => {
     for (const bt of botoes) {
         bt.addEventListener('click', () => {
             bt.parentNode.parentNode.remove();
+            atualizaRegistros();
         });
     };
 };
@@ -152,4 +153,5 @@ const inserirUsuario = (item) => {
     linha.appendChild(acoes);
     //Preencher a tabela com uma linha
     tabela.tBodies[0].appendChild(linha);
+    atualizaRegistros();
 };

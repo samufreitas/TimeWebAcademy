@@ -13,7 +13,7 @@ form.addEventListener('submit', (evento) => {
         papel: form.papel.options[form.papel.selectedIndex].label
     };
     //console.log(usuario);
-    inserirProfissional(usuario); //insere o profissional na tabela
+    inserirUsuario(usuario); //insere o profissional na tabela
     form.reset(); //Limpa os campos do form
     form.classList.add('inativo'); //Esconde o form
     eventoExcluir(); //Adiciona o evento de excluir ao botao criado ao inserir nova linha na tabela
@@ -21,3 +21,13 @@ form.addEventListener('submit', (evento) => {
 
 
 // id, ativo, nome_completo, nome_usuario, papel, senha
+
+
+// função para atualizar a linha q conta os registros
+function atualizaRegistros()
+{
+    let totalRegistros = tabela.rows.length -2; // para nao contar o cabeçalho e rodapé
+    let linhaRegistros = document.querySelector('td#total');
+    linhaRegistros.textContent = 'Total de registros: '+totalRegistros;
+}
+atualizaRegistros();
