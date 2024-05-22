@@ -139,16 +139,16 @@ const inserirUsuario = (item) => {
     id.textContent = item.id;
     nome_completo.textContent = item.nome_completo;
     nome_usuario.textContent = item.nome_usuario;
-    ativo.textContent = item.ativo;
     senha.textContent = item.senha;
+    ativo.textContent = item.ativo;
     papel.textContent = item.papel;
     acoes.innerHTML = `<a class="botao">Editar</a> <a id="vermelho" class="botao">Excluir</a>`;
     //Preencher a linha
     linha.appendChild(id);
     linha.appendChild(nome_completo);
     linha.appendChild(nome_usuario);
-    linha.appendChild(ativo);
     linha.appendChild(senha);
+    linha.appendChild(ativo);
     linha.appendChild(papel);
     linha.appendChild(acoes);
     //Preencher a tabela com uma linha
