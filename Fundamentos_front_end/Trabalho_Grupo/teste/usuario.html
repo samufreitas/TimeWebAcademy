@@ -46,8 +46,27 @@
         </ul>
     </nav>
     <main>
-        <form>
-
+        <form action="">
+            <div>
+                <label for="nomeCompleto">Nome</label>
+                <input type="text" name="nome" id="nomeCompleto" required>
+                <label for="nomeUsuario">Nome de Usúario</label>
+                <input type="text" name="nomeUS" id="nomeUsuario" required>
+                <label for="senha">Senha</label>
+                <input type="text" name="senha" id="senha" required>
+                <label for="status">Status</label>
+                <select name="sataus" id="status" required>
+                    <option value=""></option>
+                    <option value="1">1</option>
+                    <option value="2">0</option>
+                </select>
+                <label for="papel">Papel</label>
+                <select name="papel" id="papel" required>
+                    <option value=""></option>
+                    <option value="1">Atendente</option>
+                    <option value="2">Adiministrador</option>
+                </select>
+        </div>
         </form>
 
         <table>
