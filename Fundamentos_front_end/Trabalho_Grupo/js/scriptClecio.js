@@ -1,0 +1,1 @@
+/* Script secundario criado para evitar conflitos nas codificações das funções */
