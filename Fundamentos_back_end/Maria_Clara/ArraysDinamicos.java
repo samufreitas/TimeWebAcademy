@@ -6,23 +6,24 @@ import java.util.List;
 
 class ArrayDinamico {
     private List<Integer> numeros;
-
+    //Contrutor, cria o array dinâmico
     public ArrayDinamico() {
         this.numeros = new ArrayList<>();
     }
 
+    //Adiciona os números no array
     public void adicionar(int numero) {
         numeros.add(numero);
     }
-
+    //Ordena os números em ordem crescente
     public void ordenar() {
         Collections.sort(numeros);
     }
-
+    //Realiza a busca binária
     public int buscaBinaria(int numero) {
         return Collections.binarySearch(numeros, numero);
     }
-
+    //Retorna um array com os maiores valores do array numeros
     public List<Integer> obterMaiores(int n) {
         int size = numeros.size();
         if (n >= size) {
@@ -30,15 +31,15 @@ class ArrayDinamico {
         }
         return numeros.subList(size - n, size);
     }
-
+    //Identifica se o array maiores e o array numeros são iguais
     public boolean comparar(List<Integer> other) {
         return numeros.equals(other);
     }
-
+    //Ordena o array numeros em ordem decrescente
     public void ordenarDecrescente() {
         Collections.sort(numeros, Collections.reverseOrder());
     }
-
+    //Imprime em uma linha o resultado dos métodos
     public void imprimir() {
         for (int numero : numeros) {
             System.out.print(numero + " ");
@@ -47,6 +48,7 @@ class ArrayDinamico {
     }
 }
 
+//Criação do objeto
 public class ArraysDinamicos {
     public static void main(String[] args) {
         ArrayDinamico numeros = new ArrayDinamico();
@@ -89,34 +91,6 @@ public class ArraysDinamicos {
         numeros.imprimir();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
