@@ -123,6 +123,7 @@ public class ProfissionalDao implements IDao<Profissional>{
                 uDao = new UnidadeDao();
                 Unidade u = uDao.get(rs.getLong("unidade_id"));
                 registro.setUnidade(u);
+                registros.add(registro);
             }
         } catch (SQLException e) {
             e.printStackTrace();
