@@ -21,12 +21,6 @@ public class PacienteDao {
     }
 
     @Override
-    public int delete(Paciente objeto) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
     public List<Paciente> get() {
         List<Paciente> registros = new ArrayList<>();
         String sql = "SELECT * FROM paciente";
@@ -53,5 +47,34 @@ public class PacienteDao {
         }
         return registros;
     }
+
+    // Retorna um Paciente pelo id
+@Override
+public Paciente get(Long id) {
+    Paciente registro = new Paciente();
+    String sql = "SELECT * FROM paciente WHERE id = ?";
+    try {
+        ps = conexao.prepareStatement(sql);
+        ps.setLong(1, id);
+        rs = ps.executeQuery();
+        if (rs.next()) {
+            registro.setId(rs.getLong("id"));
+            registro.setCep(rs.getString("cep"));
+            registro.setCidade(rs.getString("cidade"));
+            registro.setDataNascimento(rs.getDate("data_nascimento"));
+            registro.setEmail(rs.getString("email"));
+            registro.setEndereco(rs.getString("endereco"));
+            registro.setEstado(rs.getString("estado"));
+            registro.setGrupoSanguineo(rs.getString("grupo_sanguineo"));
+            registro.setNome(rs.getString("nome"));
+            registro.setSexo(rs.getString("sexo"));
+            registro.setTelefone(rs.getString("telefone"));
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return registro;
+}
+
 
 }
