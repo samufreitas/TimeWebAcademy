@@ -1,13 +1,13 @@
-package br.ufac.sgcm;
+package Fundamentos_back_end.Trabalho_em_Grupo.sgcm.src.main.java.br.ufac.sgcm;
 
 import java.sql.Connection;
 import java.util.List;
 
-import br.ufac.sgcm.dao.ConexaoDB;
-import br.ufac.sgcm.dao.EspecialidadeDao;
-import br.ufac.sgcm.model.Especialidade;
-import br.ufac.sgcm.model.Profissional;
-import br.ufac.sgcm.model.Unidade;
+import Fundamentos_back_end.Trabalho_em_Grupo.sgcm.src.main.java.br.ufac.sgcm.dao.ConexaoDB;
+import Fundamentos_back_end.Trabalho_em_Grupo.sgcm.src.main.java.br.ufac.sgcm.dao.EspecialidadeDao;
+import Fundamentos_back_end.Trabalho_em_Grupo.sgcm.src.main.java.br.ufac.sgcm.model.Especialidade;
+import Fundamentos_back_end.Trabalho_em_Grupo.sgcm.src.main.java.br.ufac.sgcm.model.Profissional;
+import Fundamentos_back_end.Trabalho_em_Grupo.sgcm.src.main.java.br.ufac.sgcm.model.Unidade;
 
 public class App {
     public static void main(String[] args) {

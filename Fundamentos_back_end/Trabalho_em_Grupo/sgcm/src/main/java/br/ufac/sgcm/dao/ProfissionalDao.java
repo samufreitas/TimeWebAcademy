@@ -1,4 +1,4 @@
-package br.ufac.sgcm.dao;
+package Fundamentos_back_end.Trabalho_em_Grupo.sgcm.src.main.java.br.ufac.sgcm.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufac.sgcm.model.Profissional;
-import br.ufac.sgcm.model.Unidade;
+import Fundamentos_back_end.Trabalho_em_Grupo.sgcm.src.main.java.br.ufac.sgcm.model.Profissional;
+import Fundamentos_back_end.Trabalho_em_Grupo.sgcm.src.main.java.br.ufac.sgcm.model.Unidade;
 
 public class ProfissionalDao implements IDao<Profissional> {
 

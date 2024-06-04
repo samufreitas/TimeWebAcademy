@@ -1,4 +1,4 @@
-package br.ufac.sgcm.controller;
+package Fundamentos_back_end.Trabalho_em_Grupo.sgcm.src.main.java.br.ufac.sgcm.controller;
 
 import java.util.List;
 

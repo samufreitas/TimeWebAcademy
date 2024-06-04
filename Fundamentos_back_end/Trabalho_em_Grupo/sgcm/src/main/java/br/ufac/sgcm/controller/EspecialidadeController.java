@@ -1,11 +1,12 @@
-package br.ufac.sgcm.controller;
+package Fundamentos_back_end.Trabalho_em_Grupo.sgcm.src.main.java.br.ufac.sgcm.controller;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufac.sgcm.dao.EspecialidadeDao;
-import br.ufac.sgcm.model.Especialidade;
+import Fundamentos_back_end.Trabalho_em_Grupo.sgcm.src.main.java.br.ufac.sgcm.dao.EspecialidadeDao;
+import Fundamentos_back_end.Trabalho_em_Grupo.sgcm.src.main.java.br.ufac.sgcm.model.Especialidade;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
