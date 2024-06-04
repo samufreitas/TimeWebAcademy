@@ -32,11 +32,7 @@ public class ProfissionalDao implements IDao<Profissional> {
     public List<Profissional> get() {
         List<Profissional> registros = new ArrayList<>();
         String sql = "SELECT * FROM profissional";
-        String sql2 = "SELECT p.id, p.nome, p.email, " +
-                "p.registro_conselho, p.telefone, e.nome, u.nome " +
-                "FROM profissional AS p" +
-                "JOIN especialidade AS e ON p.especialidade_id=e.id" +
-                "JOIN unidade AS u ON p.unidade_id=u.id";
+
         try {
             ps = conexao.prepareStatement(sql);
             rs = ps.executeQuery();
