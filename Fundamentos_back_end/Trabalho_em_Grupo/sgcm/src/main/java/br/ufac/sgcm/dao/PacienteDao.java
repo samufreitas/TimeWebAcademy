@@ -11,7 +11,7 @@ import Fundamentos_back_end.Trabalho_em_Grupo.sgcm.src.main.java.br.ufac.sgcm.mo
 import br.ufac.sgcm.model.Paciente;
 import br.ufac.sgcm.model.Profissional;
 
-public class PacienteDao {
+public class PacienteDao implements IDao<Paciente> {
     private Connection conexao;
     private PreparedStatement ps;
     private ResultSet rs;
