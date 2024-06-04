@@ -9,16 +9,17 @@ import java.util.List;
 
 import Fundamentos_back_end.Trabalho_em_Grupo.sgcm.src.main.java.br.ufac.sgcm.model.Especialidade;
 
-public class EspecialidadeDao {
+public class EspecialidadeDao implements IDao<Especialidade> {
     Connection conexao;
     PreparedStatement ps;
     ResultSet rs;
-
+    
     public EspecialidadeDao() {
-        conexao = ConexaoDB.getConexao();
+        this.conexao = ConexaoDB.getConexao();
     }
 
-    // Retornar todas as Especialidades
+    /// Retornar todas as Especialidade
+    @Override
     public List<Especialidade> get() {
         List<Especialidade> registros = new ArrayList<>();
         String sql = "SELECT * FROM especialidade";
@@ -31,13 +32,14 @@ public class EspecialidadeDao {
                 registro.setNome(rs.getString("nome"));
                 registros.add(registro);
             }
-        } catch (SQLException e) {
+        }catch(SQLException e) {
             e.printStackTrace();
         }
         return registros;
     }
 
-    // Retornar um objeto do tipo Especialidade
+    // Retornar uma Especialidade pelo id
+    @Override
     public Especialidade get(Long id) {
         Especialidade registro = new Especialidade();
         String sql = "SELECT * FROM especialidade WHERE id = ?";
@@ -45,7 +47,7 @@ public class EspecialidadeDao {
             ps = conexao.prepareStatement(sql);
             ps.setLong(1, id);
             rs = ps.executeQuery();
-            if (rs.next()) {
+            if(rs.next()) {
                 registro.setId(rs.getLong("id"));
                 registro.setNome(rs.getString("nome"));
             }
@@ -55,7 +57,8 @@ public class EspecialidadeDao {
         return registro;
     }
 
-    // Retornar conforme um termo de busca
+    // Retornar as Especialidades conforme o termo de busca
+    @Override
     public List<Especialidade> get(String termoBusca) {
         List<Especialidade> registros = new ArrayList<>();
         String sql = "SELECT * FROM especialidade WHERE nome LIKE ?";
@@ -69,13 +72,14 @@ public class EspecialidadeDao {
                 registro.setNome(rs.getString("nome"));
                 registros.add(registro);
             }
-        } catch (SQLException e) {
+        }catch(SQLException e) {
             e.printStackTrace();
         }
         return registros;
     }
 
-    // Inserir uma especialidade
+    // Insere uma Especialidade
+    @Override
     public int insert(Especialidade objeto) {
         int registrosAfetados = 0;
         String sql = "INSERT INTO especialidade (nome) VALUES (?)";
@@ -89,29 +93,33 @@ public class EspecialidadeDao {
         return registrosAfetados;
     }
 
-    // Atualizar uma especialidade
-    public int update(Especialidade objeto) {
-        int registrosAfetados = 0;
+    // Atualiza uma Especialidade
+    @Override
+    public int update(Especialidade obejeto) {
         String sql = "UPDATE especialidade SET nome = ? WHERE id = ?";
+        int registrosAfetados = 0;
         try {
             ps = conexao.prepareStatement(sql);
-            ps.setString(1, objeto.getNome());
-            ps.setLong(2, objeto.getId());
-            registrosAfetados = ps.executeUpdate();
-        } catch (Exception e) {
+            ps.setString(1, obejeto.getNome());
+            ps.setLong(2, obejeto.getId());
+            ps.executeUpdate();
+            
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return registrosAfetados;
     }
 
-    // Excluir uma especialidade
+    // Exclui uma Especialidade
+    @Override
     public int delete(Especialidade objeto) {
-        int registrosAfetados = 0;
         String sql = "DELETE FROM especialidade WHERE id = ?";
+        int registrosAfetados = 0;
         try {
             ps = conexao.prepareStatement(sql);
             ps.setLong(1, objeto.getId());
             registrosAfetados = ps.executeUpdate();
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }
