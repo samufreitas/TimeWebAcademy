@@ -34,7 +34,7 @@ public class ProfissionalDao implements IDao<Profissional> {
                 registro.setId(rs.getLong("id"));
                 registro.setNome(rs.getString("nome"));
                 registro.setRegistro(rs.getString("registro_conselho"));
-                registro.setEmial(rs.getString("email"));
+                registro.setEmail(rs.getString("email"));
                 registro.setTelefone(rs.getString("telefone"));
                 registro.setEspecialidade(eDao.get(rs.getLong("especialidade_id")));
                 registro.setUnidade(uDao.get(rs.getLong("unidade_id")));
