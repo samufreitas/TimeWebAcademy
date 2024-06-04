@@ -56,4 +56,6 @@ public class PacienteController implements IController<Paciente> {
         return registrosAfetados;
     }
 
+
+    // falta os metodos do servlet
 }
