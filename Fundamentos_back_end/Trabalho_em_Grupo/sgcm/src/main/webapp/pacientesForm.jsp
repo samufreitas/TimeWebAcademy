@@ -1,18 +1,28 @@
+%@ page pageEncoding="UTF-8" %>
+<%@ page import="java.util.List" %>
+<%@ page import="Fundamentos_back_end.Trabalho_em_Grupo.sgcm.src.main.java.br.ufac.sgcm.model.Paciente" %>
+
+<jsp:useBean id="controller" class="Fundamentos_back_end.Trabalho_em_Grupo.sgcm.src.main.java.br.ufac.sgcm.controller.PacienteController" />
+
+<%
+    List<Paciente> registros = controller.processListRequest(request);
+%>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pacientes</title>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css" id="linkTema">
-    <script src="../javascript/funcionalidades.js" defer></script>
-    <script src="../javascript/pacientes.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <link rel="stylesheet" type="text/css" href="css/estilo-tema-azul.css" id="linkTema">
+    <script src="js/funcionalidades.js" defer></script>
+    <script src="js/pacientes.js" defer></script>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="../imagens/logo_azul(64).png" alt="Logo do SGCM" id="imglogo">
+            <img src="imagens/logo_branco.png" alt="Logo do SGCM" id="imglogo">
             <span>SGCM</span>
         </div>
         <div id="info">
@@ -106,36 +116,6 @@
         </form>
         
         <a href="" class="adicionar">Adicionar</a>
-        <!--Tabela com 8 colunas e 5 linhas-->
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <td>ID</td>
-                        <td>Nome</td>
-                        <td>Email</td>
-                        <td>Nascimento</td>
-                        <td>Sexo</td>
-                        <td>Grupo Sanguíneo</td>
-                        <td>CEP</td>
-                        <td>Estado</td>
-                        <td>Cidade</td>
-                        <td>Endereço</td>
-                        <td>Telefone</td>
-                        <td>Ações</td>
-                    </tr>
-                </thead>
-                <tbody>
-                <!-- tr*5>td{$}+td{x}*6+td{Editar | Excluir} -->
-                <!-- tr*5>td{$}+td{x}*6+td>a[href="javascript:void(0)"]{Editar}+{ | }+a[href="javascript:void(0)"]{Excluir} -->
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="12">Total de registros <span id="total"></span></td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
     </main>
     <footer>
         <div>
