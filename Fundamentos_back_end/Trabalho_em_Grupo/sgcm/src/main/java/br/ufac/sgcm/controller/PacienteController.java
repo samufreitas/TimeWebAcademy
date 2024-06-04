@@ -10,17 +10,49 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 
-public class PacienteController implements IController<Especialidade> {
+public class PacienteController implements IController<Paciente> {
 
-    private PacienteDao eDao;
+    private PacienteDao pDao;
 
     public PacienteController() {
-        eDao = new PacienteDao();
+        pDao = new PacienteDao();
+    }
+
+//delete
+    @Override
+    public int delete(Paciente objeto) {
+        int registrosAfetados = pDao.delete(objeto);
+        return registrosAfetados;
+    }
+
+//gets
+    @Override
+    public List<Paciente> get() {
+        List<Paciente> registros = pDao.get();
+        return registros;
     }
 
     @Override
-    public int delete(Paciente objeto) {
-        int registrosAfetados = eDao.delete(objeto);
+    public Paciente get(Long id) {
+        Paciente registro = pDao.get(id);
+        return registro;
+    }
+
+    @Override
+    public List<Paciente> get(String termoDeBusca) {
+        List<Paciente> registros = pDao.get(termoDeBusca);
+        return registros;
+    }
+
+// save?
+    @Override
+    public int save(Paciente objeto) {
+        int registrosAfetados;
+        if (objeto.getId() == null) {
+            registrosAfetados = pDao.insert(objeto);
+        } else {
+            registrosAfetados = pDao.update(objeto);
+        }
         return registrosAfetados;
     }
 
